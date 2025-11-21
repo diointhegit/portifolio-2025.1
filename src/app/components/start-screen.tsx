@@ -15,6 +15,17 @@ export default function StartScreen({
   const [started, setStarted] = useState(false);
   const [selected, setSelected] = useState(0);
 
+  const checkIfSelected = (id: number) => {
+    if (id != selected) {
+      setSelected(id);
+      const menuSelect = new Audio("/MenuSelect.wav");
+
+      menuSelect.play();
+      return;
+    } else {
+      handleConfirm();
+    }
+  };
   function handleConfirm() {
     if (started) {
       handleStart();
@@ -118,12 +129,12 @@ export default function StartScreen({
                         menuSelect.play();
                       }}
                       key={item.title}
+                      onClick={() => checkIfSelected(id)}
                       // className="bg-white px-10 py-2 rounded-tr-full rounded-bl-full relative w-full h-2 flex items-center"
                       className="flex justify-center items-center focus:none focus:outline-none w-[130%] hover:cursor-pointer"
                     >
                       <p
                         tabIndex={0}
-                        onClick={handleConfirm}
                         className={cn(
                           "text-center focus:none focus:outline-none ",
                           options[selected].title == item.title
