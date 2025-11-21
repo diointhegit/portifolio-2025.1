@@ -11,8 +11,8 @@ import {
 
 export const Menu = ({ confirmed, setConfirmed }: any) => {
   const [selected, setSelected] = useState<number>(0);
-  const menuSelect = new Audio("/menuSelect.wav");
-  const menuConfirm = new Audio("/menuConfirm.wav");
+  const menuSelect = new Audio("/MenuSelect.wav");
+  const menuConfirm = new Audio("/MenuConfirm.wav");
   const handleSelected = (id: number): void => {
     setSelected(id);
     menuSelect.play();
