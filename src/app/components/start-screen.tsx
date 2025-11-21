@@ -12,25 +12,23 @@ export default function StartScreen({
   options: any;
   handleStart: () => void;
 }) {
-  const menuSelect = new Audio("/menuSelect.wav");
-  const menuConfirm = new Audio("/menuConfirm.wav");
-
   const [started, setStarted] = useState(false);
   const [selected, setSelected] = useState(0);
 
   function handleConfirm() {
     if (started) {
       handleStart();
+      const menuConfirm = new Audio("/menuConfirm.wav");
       menuConfirm.play();
       options[selected].function();
     }
   }
 
-  const textRef = useRef(null);
+  const textRef = useRef<HTMLParagraphElement | null>(null);
 
   gsap.registerPlugin(useGSAP, ScrambleTextPlugin);
   useGSAP(() => {
-    if (textRef.current && textRef.current.innerHTML) {
+    if (textRef.current?.innerHTML) {
       gsap.fromTo(
         textRef.current,
         {
@@ -69,6 +67,8 @@ export default function StartScreen({
           case "Enter":
             e.preventDefault();
             setStarted(true);
+            const menuConfirm = new Audio("/menuConfirm.wav");
+
             menuConfirm.play();
 
             break;
@@ -113,6 +113,8 @@ export default function StartScreen({
                     <div
                       onMouseEnter={() => {
                         setSelected(id);
+                        const menuSelect = new Audio("/menuSelect.wav");
+
                         menuSelect.play();
                       }}
                       key={item.title}
@@ -147,6 +149,8 @@ export default function StartScreen({
           className="absolute bottom-20  w-full"
           onClick={() => {
             setStarted(true);
+            const menuConfirm = new Audio("/menuConfirm.wav");
+
             menuConfirm.play();
           }}
         >
