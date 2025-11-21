@@ -22,8 +22,8 @@ export function useKeyboardNavigation<T>({
       toRemove();
     }
 
-    const menuSelect = new Audio("/menuSelect.wav");
-    const menuConfirm = new Audio("/menuConfirm.wav");
+    const menuSelect = new Audio("/MenuSelect.wav");
+    const menuConfirm = new Audio("/MenuConfirm.wav");
 
     if (confirmed === undefined) {
       const handleMoveKeys = (e: KeyboardEvent) => {

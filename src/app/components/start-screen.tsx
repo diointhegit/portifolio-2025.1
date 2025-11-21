@@ -18,7 +18,7 @@ export default function StartScreen({
   function handleConfirm() {
     if (started) {
       handleStart();
-      const menuConfirm = new Audio("/menuConfirm.wav");
+      const menuConfirm = new Audio("/MenuConfirm.wav");
       menuConfirm.play();
       options[selected].function();
     }
@@ -67,7 +67,7 @@ export default function StartScreen({
           case "Enter":
             e.preventDefault();
             setStarted(true);
-            const menuConfirm = new Audio("/menuConfirm.wav");
+            const menuConfirm = new Audio("/MenuConfirm.wav");
 
             menuConfirm.play();
 
@@ -113,7 +113,7 @@ export default function StartScreen({
                     <div
                       onMouseEnter={() => {
                         setSelected(id);
-                        const menuSelect = new Audio("/menuSelect.wav");
+                        const menuSelect = new Audio("/MenuSelect.wav");
 
                         menuSelect.play();
                       }}
@@ -149,7 +149,7 @@ export default function StartScreen({
           className="absolute bottom-20  w-full"
           onClick={() => {
             setStarted(true);
-            const menuConfirm = new Audio("/menuConfirm.wav");
+            const menuConfirm = new Audio("/MenuConfirm.wav");
 
             menuConfirm.play();
           }}

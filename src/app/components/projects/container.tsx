@@ -25,7 +25,7 @@ export const Container = ({
   };
 
   useEffect(() => {
-    const menuBack = new Audio("/menuBack.wav");
+    const menuBack = new Audio("/MenuBack.wav");
 
     setSubMenuOpen(true);
     const handleKeyDown = (e: KeyboardEvent) => {

@@ -2,7 +2,7 @@
 import { BsSquareFill } from "react-icons/bs";
 
 export default function BackButton({ handleClose }: { handleClose: any }) {
-  const menuBack = new Audio("/menuBack.wav");
+  const menuBack = new Audio("/MenuBack.wav");
 
   const CloseWithEffets = () => {
     menuBack.play();

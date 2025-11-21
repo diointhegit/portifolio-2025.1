@@ -17,9 +17,9 @@ export const Container = ({
 }) => {
   const { setSubMenuOpen } = useContext(MenuContext);
 
-  const menuConfirm = new Audio("/menuConfirm.wav");
+  const menuConfirm = new Audio("/MenuConfirm.wav");
   useEffect(() => {
-    const menuBack = new Audio("/menuBack.wav");
+    const menuBack = new Audio("/MenuBack.wav");
 
     setSubMenuOpen(true);
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -38,7 +38,7 @@ export const Container = ({
   }, [path]);
 
   const [selected, setSelected] = useState<number>(0);
-  const menuBack = new Audio("/menuBack.wav");
+  const menuBack = new Audio("/MenuBack.wav");
 
   const handleSelected = (id: number): void => {
     setSelected(id);

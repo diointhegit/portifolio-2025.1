@@ -27,7 +27,7 @@ export const SelectedItem = ({
   const [contactConfirm, setContactConfirm] = useState(false);
   const [exiting, setExiting] = useState(false);
   useEffect(() => {
-    const menuBack = new Audio("/menuBack.wav");
+    const menuBack = new Audio("/MenuBack.wav");
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!subMenuOpen) {
         switch (e.key) {
