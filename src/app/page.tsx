@@ -1,22 +1,52 @@
-import { promises as fs } from "fs";
+"use client";
+import { useState } from "react";
+import StartScreen from "./components/start-screen";
+import Wrapper from "./components/wrapper";
+import Blog from "./components/blog";
 
-import { Contact } from "./components/contact";
-import { Home } from "./components/home";
-import { Projects } from "./components/projects";
-import { Skills } from "./components/skills";
-import { motion } from "motion/react";
-import { Wrapper } from "./components/wrapper";
+export default function Page() {
+  const [isStarted, setStarted] = useState(false);
+  const [mode, setMode] = useState<string | undefined>(undefined);
 
-export default async function Page() {
-  const file = await fs.readFile(
-    process.cwd() + "/public/projects.json",
-    "utf8"
-  );
-  const projects = JSON.parse(file);
+  const handleStart = () => {
+    setStarted(true);
+    return;
+  };
+
+  function exitToMainMenu() {
+    setStarted(false);
+    setMode(undefined);
+  }
+
+  function handleMode(title: string) {
+    setMode(title);
+  }
+
+  const options = [
+    {
+      title: "Portifolio",
+      function: function () {
+        handleMode(this.title);
+      },
+    },
+    {
+      title: "Blog",
+      function: function () {
+        handleMode(this.title);
+      },
+    },
+  ];
 
   return (
-    <div>
-      <Wrapper projects={projects} />
+    <div className="overflow-x-hidden m-0 p-0">
+      {isStarted ? (
+        <>
+          {mode == "Portifolio" && <Wrapper exitToMainMenu={exitToMainMenu} />}
+          {mode == "Blog" && <Blog exitToMainMenu={exitToMainMenu} />}
+        </>
+      ) : (
+        <StartScreen handleStart={handleStart} options={options} />
+      )}
     </div>
   );
 }

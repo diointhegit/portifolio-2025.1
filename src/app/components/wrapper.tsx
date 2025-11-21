@@ -1,36 +1,28 @@
 "use client";
-
 import { useState } from "react";
-import { Project } from "../types/project";
-import { Home } from "./home";
-import { AnimatePresence, motion } from "motion/react";
-import { Screen } from "./screen";
-import { SelectOptions } from "./selectoptions";
+import { Menu } from "./menu/container";
+import { SelectedItem } from "./menu/selected-item";
 
-export const Wrapper = ({ projects }: { projects: Project[] }) => {
-  console.log(projects);
+export default function Wrapper({ exitToMainMenu }: { exitToMainMenu: any }) {
+  const [confirmed, setConfirmed] = useState<string | undefined>();
 
-  const [started, setStart] = useState(false);
+  const handleCancel = () => {
+    setConfirmed(undefined);
+  };
 
   return (
-    <AnimatePresence mode="wait">
-      {!started && <Home setStart={setStart} />}
+    <div className="bg-background min-h-screen overflow-x-hidden pb-24 w-screen flex items-center px-20 gap-15 flex-col xl:flex-row skillsContainer pt-10 lg:pt-0 portifolioWrapper">
+      <div className="h-[125px] left-[13px] w-2 bg-accent absolute  "></div>
 
-      {started && <SelectScreen projects={projects} />}
-    </AnimatePresence>
+      <Menu confirmed={confirmed} setConfirmed={setConfirmed} />
+      {confirmed && (
+        <SelectedItem
+          exitToMainMenu={exitToMainMenu}
+          confirmed={confirmed}
+          onCancel={handleCancel}
+          itemName={confirmed}
+        />
+      )}
+    </div>
   );
-};
-
-const SelectScreen = ({ projects }: { projects: Project[] }) => {
-  const [option, setOption] = useState();
-  return (
-    <motion.div
-      initial={{ opacity: 0.5 }}
-      animate={{ opacity: 1, transition: { duration: 1 } }}
-      className="bg-[#02112c] h-screen w-screen px-5 py-2 flex flex-wrap text-white gap-10 items-center justify-center max-h-screen overflow-y-hidden overflow-x-hidden"
-    >
-      <Screen option={option} projects={projects} />
-      <SelectOptions option={option} setOption={setOption} />
-    </motion.div>
-  );
-};
+}

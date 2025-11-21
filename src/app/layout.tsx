@@ -21,15 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className}  text-black `}>
-        {/* <nav className=" py-5 flex justify-around bg-red-500">
-<p>Home</p>
-<Link href="#projects">Projects</Link>
-<Link href="#contacts">Contacts</Link>
-</nav> */}
-
-        {children}
-      </body>
+      <body className={`${poppins.className}  text-black `}>{children}</body>
     </html>
   );
 }
