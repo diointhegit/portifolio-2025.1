@@ -1,5 +1,7 @@
 import { useWindowSize } from "@/app/hooks/useWindowSize";
+import { Project } from "@/app/types/project";
 import { useGSAP } from "@gsap/react";
+import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { BsSquare } from "react-icons/bs";
@@ -9,7 +11,7 @@ export const Details = ({
   project,
   closeDetails,
 }: {
-  project: any;
+  project: Project;
   closeDetails: any;
 }) => {
   const containerRef = useRef(null);
@@ -22,7 +24,7 @@ export const Details = ({
           opacity: 0,
           x: -15,
         },
-        { opacity: 1, x: 0, duration: 0.25 }
+        { opacity: 1, x: 0, duration: 0.25 },
       );
     } else {
     }
@@ -32,13 +34,15 @@ export const Details = ({
         opacity: 0,
         x: -15,
       },
-      { opacity: 1, x: 0, duration: 0.25 }
+      { opacity: 1, x: 0, duration: 0.25 },
     );
 
     {
       scope: containerRef;
     }
   });
+
+  console.log(project);
 
   return (
     <div ref={containerRef}>
@@ -49,35 +53,29 @@ export const Details = ({
         <div className="px-5">
           <h3 className="text-xl my-2 ">Tech Stack </h3>
           <div className="grid text-lg">
-            <div className="flex justify-between">
-              <p>Typescript:</p>
-              <p>icon</p>
-            </div>
-            <div className="flex justify-between">
-              <p>Typescript:</p>
-              <p>icon</p>
-            </div>{" "}
-            <div className="flex justify-between">
-              <p>Typescript:</p>
-              <p>icon</p>
-            </div>{" "}
-            <div className="flex justify-between">
-              <p>Typescript:</p>
-              <p>icon</p>
-            </div>
+            {project.techs.map((tech) => {
+              return (
+                <div className="flex justify-between">
+                  <p>{tech.title}</p>
+                  <Icon icon={tech.icon} />
+                </div>
+              );
+            })}
           </div>
           <hr className="my-5" />
         </div>
         <div className="px-5">
           <h3 className="text-xl my-2">Links</h3>
-          <div className="flex justify-between">
-            <p>Github:</p>
-            <p>link</p>
-          </div>
-          <div className="flex justify-between">
-            <p>Live:</p>
-            <p>link</p>
-          </div>
+
+          {project.links.map((link) => {
+            return (
+              <div className="flex justify-between">
+                <a href={link.url} target="_blank">
+                  {link.title}
+                </a>
+              </div>
+            );
+          })}
           <div className="lg:flex justify-center space-x-8 my-5 hidden ">
             {[1, 1, 1, 1, 1, 1, 1, 1, 1].map((_: any, key: number) => {
               return <BsSquare key={key} />;

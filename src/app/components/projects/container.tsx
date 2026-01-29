@@ -7,12 +7,13 @@ import { BsSquareFill } from "react-icons/bs";
 import BackButton from "../back-button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Project } from "@/app/types/project";
 
 export const Container = ({
   confirmedProject,
   setConfirmed,
 }: {
-  confirmedProject: any;
+  confirmedProject: Project;
   setConfirmed: any;
 }) => {
   const { setSubMenuOpen } = useContext(MenuContext);
@@ -60,10 +61,10 @@ export const Container = ({
           opacity: 0,
           x: -15,
         },
-        { opacity: 1, x: 0, duration: 0.25 }
+        { opacity: 1, x: 0, duration: 0.25 },
       );
     },
-    { scope: ContainerRef }
+    { scope: ContainerRef },
   );
 
   return (

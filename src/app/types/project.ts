@@ -1,7 +1,7 @@
 export type Project = {
   title: string;
+  picture: string;
+  techs: { title: string; icon: string }[];
   description: string;
-  live?: string;
-  github?: string;
-  figma?: string;
+  links: { title: string; url: string }[];
 };

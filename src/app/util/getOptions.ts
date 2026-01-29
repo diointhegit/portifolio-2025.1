@@ -2,26 +2,37 @@ const MainMenuItems = ["About", "Projects", "Skills", "Contact", "Exit"];
 
 const projects = [
   {
-    title: "Projeto 1",
+    title: "Surfate Academy",
     picture: "",
-    description: "Lorem Ipsum et dolor sit amet",
-    techs: ["Js", "Ts"],
-    links: ["Live", "Github repo"],
+    description:
+      "Landing Page feita para divulgação e apresentação do curso Surfate Academy, de animação.",
+    techs: [
+      { title: "Typescript", icon: "akar-icons:typescript-fill" },
+      { title: "React", icon: "akar-icons:react-fill" },
+      { title: "Tailwind", icon: "simple-icons:tailwindcss" },
+    ],
+    links: [
+      { title: "Live", url: "https://www.surfateacademy.com.br" },
+      {
+        title: "Github",
+        url: "https://github.com/diointhegit/animation-academy",
+      },
+    ],
   },
-  {
-    title: "Projeto 2",
-    picture: "",
-    description: "Lorem Ipsum et dolor sit amet",
-    techs: ["Js", "Ts"],
-    links: ["Live", "Github repo"],
-  },
-  {
-    title: "Projeto 3",
-    picture: "",
-    description: "Lorem Ipsum et dolor sit amet",
-    techs: ["Js", "Ts"],
-    links: ["Live", "Github repo"],
-  },
+  // {
+  //   title: "Projeto 2",
+  //   picture: "",
+  //   description: "Lorem Ipsum et dolor sit amet",
+  //   techs: ["Js", "Ts"],
+  //   links: ["Live", "Github repo"],
+  // },
+  // {
+  //   title: "Projeto 3",
+  //   picture: "",
+  //   description: "Lorem Ipsum et dolor sit amet",
+  //   techs: ["Js", "Ts"],
+  //   links: ["Live", "Github repo"],
+  // },
 ];
 
 const skills = [

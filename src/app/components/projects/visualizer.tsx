@@ -15,18 +15,17 @@ export const Visualizer = ({
         <div className=" bg-accent w-full h-full"></div>
       </div>
 
-      <div className="px-5 space-y-2 pb-6">
+      <div className="px-5 space-y-2  pb-6 h-full">
         <hr />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis modi
-          eos labore alias explicabo laboriosam hic delectus? Debitis eaque
-          minus labore deleniti fugit voluptatibus commodi aliquid, recusandae
-          explicabo tempore dicta.
-        </p>
-        <div className="flex justify-end">
-          <p onClick={openDetails} className="self-end">
-            Details
-          </p>
+        <div className="flex flex-col h-full">
+          <div className="h-[150px]">
+            <p>{project.description}</p>
+          </div>
+          <div className="flex justify-end">
+            <p onClick={openDetails} className="self-end">
+              Details
+            </p>
+          </div>
         </div>
       </div>
     </div>
